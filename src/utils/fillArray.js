@@ -11,10 +11,10 @@ const fillArray = data => {
       .trim();
     if (compareDate(entryDate)) {
       entries[index] = {
-        descricao: $(this)
+        description: $(this)
           .text()
           .trim(),
-        dataPubli: $(".file-date", $(this).parent())
+        date: $(".file-date", $(this).parent())
           .text()
           .trim(),
         downloadLink: $(".divisor-vertical-left", $(this).parent())

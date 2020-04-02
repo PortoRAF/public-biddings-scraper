@@ -20,7 +20,7 @@ let mailOptions = {
   subject: "Licitação publicada",
   text: "Plaintext support",
   html: `<!doctype html>
-  <html ⚡4email>
+  <html 4email>
     <head>
       <meta charset="utf-8>
     </head>
