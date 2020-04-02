@@ -1,6 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const compareDate = require("./utils/compareDate");
+const fillArray = require("./utils/fillArray");
 
 const url = "http://www.novalima.mg.gov.br/portal-transparencia/editais";
 var editais = [];
@@ -12,28 +12,23 @@ axios
     }
   })
   .then(response => {
-    const $ = cheerio.load(response.data);
-
-    $(".file-description").each(function(i) {
-      const entryDate = $(".file-date", $(this).parent())
-        .text()
-        .trim();
-      if (compareDate(entryDate)) {
-        editais[i] = {
-          descricao: $(this)
-            .text()
-            .trim(),
-          dataPubli: $(".file-date", $(this).parent())
-            .text()
-            .trim(),
-          downloadLink: $(".divisor-vertical-left", $(this).parent())
-            .children()
-            .attr("href")
-        };
-      }
-    });
-    console.log(editais);
+    editais = editais.concat(fillArray(response.data));
   })
   .catch(error => {
     console.log(error);
   });
+
+axios
+  .get(url, {
+    params: {
+      busca: "edital tomada"
+    }
+  })
+  .then(response => {
+    editais = editais.concat(fillArray(response.data));
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+// console.log(editais);
