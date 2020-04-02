@@ -8,6 +8,10 @@ const compareDate = date => {
 
 const yesterday = date => {
   const dt = new Date(date);
+  if (dt.getDay() === 1) {
+    dt.setDate(dt.getDate() - 3).toString();
+    return dt;
+  }
   dt.setDate(dt.getDate() - 1).toString();
   return dt;
 };

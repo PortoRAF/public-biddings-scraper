@@ -1,12 +1,8 @@
 const axios = require("axios");
-const cheerio = require("cheerio");
-const fillArray = require("./utils/fillArray");
+const fillArray = require("./fillArray");
 
-const url = "http://www.novalima.mg.gov.br/portal-transparencia/editais";
-const buscas = ["edital concorrencia", "edital tomada"];
-var editais = [];
-
-const webScraping = async () => {
+const webScraping = async (url, buscas, editais) => {
+  editais = [];
   for (const busca of buscas) {
     await axios
       .get(url, {
@@ -21,7 +17,7 @@ const webScraping = async () => {
         console.log(error);
       });
   }
-  console.log(editais);
+  return editais;
 };
 
-webScraping();
+module.exports = webScraping;

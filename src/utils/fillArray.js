@@ -4,12 +4,13 @@ const compareDate = require("./compareDate");
 const fillArray = data => {
   const $ = cheerio.load(data);
   let entries = [];
-  $(".file-description").each(function(i) {
+  let index = 0;
+  $(".file-description").each(function() {
     var entryDate = $(".file-date", $(this).parent())
       .text()
       .trim();
     if (compareDate(entryDate)) {
-      entries[i] = {
+      entries[index] = {
         descricao: $(this)
           .text()
           .trim(),
@@ -20,6 +21,7 @@ const fillArray = data => {
           .children()
           .attr("href")
       };
+      index++;
     }
   });
   return entries;
