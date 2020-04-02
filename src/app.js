@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const express = require("express");
 const webScraping = require("./utils/webScraping");
-const sendDailyReport = require("./emails/dailyReport");
+const sendDailyReport = require("./emails/emailSender");
 
 const url = "http://www.novalima.mg.gov.br/portal-transparencia/editais";
 const buscas = ["edital concorrencia", "edital tomada"];

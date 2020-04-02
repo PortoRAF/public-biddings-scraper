@@ -1,0 +1,15 @@
+html
+  body
+    table(border='1' cellpadding = '5' cellspacing = '5' width='600')
+      caption Publicações do dia
+      tr
+        th Publicação
+        th Data
+        th Download
+
+      each i in emps
+        tr
+          td= i.name
+          td= i.age
+          td
+            a(href= i.email download= i.name) link
