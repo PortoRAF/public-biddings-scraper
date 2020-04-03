@@ -9,8 +9,7 @@ const buscas = ["edital concorrencia", "edital tomada"];
 var editais = [];
 
 const mailToList = [
-  "renatoafporto@gmail.com",
-  "construtorapalmeiras@yahoo.com.br",
+  "renatoafporto@gmail.com"
 ];
 
 app = express();
