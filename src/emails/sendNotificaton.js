@@ -1,19 +1,18 @@
-require("dotenv").config({ path: "../.env" });
 const nodemailer = require("nodemailer");
 const postmarkTransport = require("nodemailer-postmark-transport");
 
-const sendNotification = entries => {
+const sendNotification = (entries, mailToList) => {
   const transport = nodemailer.createTransport(
     postmarkTransport({
       auth: {
-        apiKey: "eee4dde0-5e80-43e8-8670-3147b4640b86"
+        apiKey: process.env.POSTMARK_API_TOKEN
       }
     })
   );
 
   let mail = {
     from: "contato@bebeldocecozinha.com.br",
-    to: "contato@bebeldocecozinha.com.br",
+    to: mailToList,
     templateAlias: "notification",
     templateModel: {
       notification_details: entries

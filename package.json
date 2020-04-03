@@ -4,26 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
+    "dev": "env-cmd node src/app.js",
     "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "env-cmd": "^10.1.0"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
-    "dotenv": "^8.2.0",
-    "email-templates": "^7.0.4",
     "express": "^4.17.1",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.6",
     "nodemailer-postmark-transport": "^3.0.0",
-    "postmark": "^2.5.1",
-    "pug": "^2.0.4",
-    "request": "^2.88.2"
+    "postmark": "^2.5.1"
   }
 }
