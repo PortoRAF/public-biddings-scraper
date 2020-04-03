@@ -19,7 +19,7 @@ cron.schedule("30 7 * * 1-5", async () => {
   editais = await webScraping(url, buscas, editais);
   if (editais.length > 0) {
     sendNotification(editais, mailToList.toString());
-    console.log(editais);
+    // console.log(editais);
   }
 });
 
