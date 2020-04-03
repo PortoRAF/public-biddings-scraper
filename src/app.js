@@ -1,5 +1,6 @@
 const cron = require("node-cron");
 const express = require("express");
+const path = require("path");
 const webScraping = require("./utils/webScraping");
 const sendNotification = require("./emails/sendNotificaton");
 
@@ -9,13 +10,13 @@ var editais = [];
 
 const mailToList = [
   "renatoafporto@gmail.com",
-  "construtorapalmeiras@yahoo.com.br"
+  "construtorapalmeiras@yahoo.com.br",
 ];
 
 app = express();
 
 app.get("/", (req, res) => {
-  res.send("Server is up!");
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 cron.schedule("0 19 * * 1-5", async () => {
