@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.send("Server is up!");
 });
 
-cron.schedule("30 7 * * 1-5", async () => {
+cron.schedule("* * * * 1-5", async () => {
   editais = await webScraping(url, buscas, editais);
   if (editais.length > 0) {
     sendNotification(editais, mailToList.toString());
