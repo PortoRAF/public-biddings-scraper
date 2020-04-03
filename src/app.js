@@ -7,7 +7,10 @@ const url = "http://www.novalima.mg.gov.br/portal-transparencia/editais";
 const buscas = ["edital concorrencia", "edital tomada"];
 var editais = [];
 
-const mailToList = ["renatoafporto@gmail.com"];
+const mailToList = [
+  "renatoafporto@gmail.com",
+  "construtorapalmeiras@yahoo.com.br"
+];
 
 app = express();
 
