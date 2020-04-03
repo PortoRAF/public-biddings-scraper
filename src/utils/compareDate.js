@@ -12,7 +12,7 @@ const yesterday = date => {
     dt.setDate(dt.getDate() - 3).toString();
     return dt;
   }
-  dt.setDate(dt.getDate() - 1).toString();
+  dt.setDate(dt.getDate() - 2).toString();
   return dt;
 };
 
