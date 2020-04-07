@@ -1,5 +1,5 @@
 const cheerio = require("cheerio");
-const checkIsYesterday = require("./checkIsYesterday");
+const checkWasYesterday = require("./checkWasYesterday");
 
 const processData = (data) => {
   const $ = cheerio.load(data);
@@ -7,7 +7,7 @@ const processData = (data) => {
   let index = 0;
   $(".file-description").each(function () {
     var entryDate = $(".file-date", $(this).parent()).text().trim();
-    if (checkIsYesterday(entryDate)) {
+    if (checkWasYesterday(entryDate)) {
       entries[index] = {
         description: $(this).text().trim(),
         date: $(".file-date", $(this).parent()).text().trim(),

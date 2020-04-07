@@ -1,4 +1,4 @@
-const checkIsYesterday = (date) => {
+const checkWasYesterday = (date) => {
   var inputArr = date.split("/");
   var inputDate = new Date(inputArr[2] + "/" + inputArr[1] + "/" + inputArr[0]);
   var yesterdayDate = yesterday(new Date());
@@ -12,8 +12,8 @@ const yesterday = (date) => {
     dt.setDate(dt.getDate() - 3).toString();
     return dt;
   }
-  dt.setDate(dt.getDate() - 5).toString();
+  dt.setDate(dt.getDate() - 1).toString();
   return dt;
 };
 
-module.exports = checkIsYesterday;
+module.exports = checkWasYesterday;
