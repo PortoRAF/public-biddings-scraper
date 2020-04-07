@@ -1,39 +1,32 @@
-const cron = require("node-cron");
-const express = require("express");
-const path = require("path");
-const webScraping = require("./utils/webScraping");
+const axios = require("axios");
+const processData = require("./utils/processData");
 const sendNotification = require("./emails/sendNotificaton");
 
 const url = "http://www.novalima.mg.gov.br/portal-transparencia/editais";
-const buscas = ["edital concorrencia", "edital tomada"];
 
-var editais = [];
+const searchItems = ["edital concorrencia", "edital tomada"];
 
 const mailToList = ["renatoafporto@gmail.com"];
 
-const publicDirectoryPath = path.join(__dirname, "../public");
-
-app = express();
-
-app.use(express.static(publicDirectoryPath));
-
-app.get("/", (req, res) => {
-  res.send("Server is up!");
-});
-
-cron.schedule(
-  "0 * * * 1-5",
-  async () => {
-    editais = await webScraping(url, buscas, editais);
-    if (editais.length > 0) {
-      sendNotification(editais, mailToList.toString());
-      // console.log(editais);
-    }
-  },
-  {
-    scheduled: true,
-    timezone: "America/Sao_Paulo",
+const webScraping = async (url, searchItems) => {
+  var biddings = [];
+  for (const item of searchItems) {
+    await axios
+      .get(url, {
+        params: {
+          busca: item,
+        },
+      })
+      .then((response) => {
+        biddings = biddings.concat(processData(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
-);
+  if (biddings.length > 0) {
+    sendNotification(biddings, mailToList.toString());
+  }
+};
 
-app.listen(process.env.PORT);
+webScraping(url, searchItems);
