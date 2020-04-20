@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "env-cmd node src/app.js",
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "scrape": "env-cmd node src/utils/scrapeWebsite.js"
   },
   "keywords": [],
   "author": "Renato Porto",
