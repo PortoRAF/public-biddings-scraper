@@ -4,7 +4,7 @@
   "description": "Scrapes city's website for new public works biddings",
   "main": "app.js",
   "scripts": {
-    "dev": "env-cmd node src/app.js",
+    "dev": "env-cmd nodemon -e js,ejs src/app.js",
     "start": "node src/app.js",
     "scrape": "env-cmd node src/utils/scrapeWebsite.js"
   },
@@ -12,12 +12,15 @@
   "author": "Renato Porto",
   "license": "MIT",
   "devDependencies": {
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.3"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
+    "http-errors": "^1.7.3",
     "nodemailer": "^6.4.6",
     "nodemailer-postmark-transport": "^3.0.0",
     "postmark": "^2.5.1"
