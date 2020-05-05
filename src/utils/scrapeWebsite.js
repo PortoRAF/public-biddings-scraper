@@ -24,9 +24,8 @@ const webScraping = async (url, searchItems) => {
         console.log(error);
       });
   }
-  if (biddings.length > 0) {
-    sendNotification(biddings, mailToList.toString());
-  }
+  // if (biddings.length > 0) {}
+  sendNotification(biddings, mailToList.toString());
 };
 
 webScraping(url, searchItems);
