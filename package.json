@@ -21,7 +21,7 @@
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
-    "nodemailer": "^6.4.6",
+    "nodemailer": "^6.4.16",
     "nodemailer-postmark-transport": "^3.0.0",
     "postmark": "^2.5.1"
   },
