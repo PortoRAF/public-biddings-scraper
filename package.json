@@ -19,7 +19,7 @@
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "ejs": "^3.1.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http-errors": "^1.7.3",
     "nodemailer": "^6.4.6",
     "nodemailer-postmark-transport": "^3.0.0",
